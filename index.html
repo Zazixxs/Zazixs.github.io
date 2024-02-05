@@ -1,10 +1,26 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<!DOCTYPE html>
+<html>
 <body>
-    <H1>HEJ HEJ</H1>
+
+<h2>Chat with AI</h2>
+
+<div id="chatbox">
+  <!-- Chat messages will be added here -->
+</div>
+
+<input type="text" id="userInput" placeholder="Type your message...">
+<button onclick="getUserMessage()">Send</button>
+
+<script>
+function getUserMessage() {
+  var input = document.getElementById("userInput").value;
+  // Display user's message
+  document.getElementById("chatbox").innerHTML += "User: " + input + "<br>";
+  // TODO: Send 'input' to your server and get the response from GPT
+  // Display GPT's message
+  // document.getElementById("chatbox").innerHTML += "GPT: " + response + "<br>";
+}
+</script>
+
 </body>
 </html>
