@@ -12,15 +12,26 @@
 <button onclick="getUserMessage()">Send</button>
 
 <script>
-function getUserMessage() {
+async function getUserMessage() {
   var input = document.getElementById("userInput").value;
   // Display user's message
   document.getElementById("chatbox").innerHTML += "User: " + input + "<br>";
-  // TODO: Send 'input' to your server and get the response from GPT
+  
+  // Send 'input' to your server and get the response from GPT
+  const response = await fetch('/get-response', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ message: input }),
+  });
+  const data = await response.json();
+
   // Display GPT's message
-  // document.getElementById("chatbox").innerHTML += "GPT: " + response + "<br>";
+  document.getElementById("chatbox").innerHTML += "GPT: " + data.response + "<br>";
 }
 </script>
 
 </body>
 </html>
+
