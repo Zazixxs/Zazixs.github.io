@@ -21,10 +21,8 @@ body{
     
 }
 
-
-@media (min-width:500px) {
-    .btn-group{
-        display: block;
-    }
+.container{
+    padding: 2rem;
+    width: 50%;
+    height: 40%;
 }
-
