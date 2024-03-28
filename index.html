@@ -13,57 +13,29 @@
         <button type="button" class="btn btn-primary menu-item" id="github-btn">GitHub<img src="img/25231.png" class="logo"></button>
         <button type="button" class="btn btn-primary menu-item" id="cv-btn">CV<img src="img/resume-icon-png-15.png" class="logo"></button>
     </div>
-
-
-  <div class="container"> 
-      <div id="carousel" class="carousel slide " data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="/img/25231.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item" data-bs-interval="10000">
-        <img src="/img/free-linkedin-logo-icon-2430-thumb.png" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item" data-bs-interval="10000">
-        <img src="/img/resume-icon-png-15.png" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
-
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">
-          
-
-
-
-
-
-
-
-        </div>
-        <div class="col">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+<body>
+    <h1 id="price">Loading...</h1>
+    <script>
+        // Function to get the data
+        function getData() {
+            fetch('https://api.coindesk.com/v1/bpi/currentprice/BTC.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('price').innerText = data.bpi.USD.rate + ' USD';
+                });
+        }
         
-
-
-
-
-
-
-
-        </div>
-      </div>
-    </div>
-
+        // Get the data every 10 seconds
+        setInterval(getData);
+    </script>
 
 </body>
 <script src="js/script.js"></script>
